@@ -1,0 +1,70 @@
+.modalWrapper{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.4);
+
+  &.open{
+    animation: inAnimation .3s ease;
+  }
+  &.close{
+    animation: outAnimation .3s ease;
+  }
+  .modalWindow{
+    position: relative;
+    min-width: min(700px, 90vw);
+    max-width: 800px;
+
+    min-height: 400px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 32px;
+
+    background: white;
+    .close-icon{
+      position: absolute;
+      right: 23px;
+      top: 23px;
+
+      height: 18px;
+      cursor: pointer;
+      transition: .2s;
+      &:hover{
+        scale: 1.1;
+      }
+    }
+  }
+}
+
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
