@@ -43,7 +43,7 @@ export const heroes: IHero[] = [
     role: "tank",
     image:
       "https://d15f34w2p8l1cc.cloudfront.net/overwatch/cef2406b2244b80506f83b8fb9ebaf214f41fa8795cbeef84026cd8018561d04.png",
-    counteredBy: ["rainhardt", "zarya", "ashe", "sojourn", "kiriko", "ana"],
+    counteredBy: ["reinhardt", "zarya", "ashe", "sojourn", "kiriko", "ana"],
     goodAgainst: ["zenyatta"],
   },
   {
@@ -86,7 +86,7 @@ export const heroes: IHero[] = [
       "kiriko",
       "lucio",
     ],
-    goodAgainst: [],
+    goodAgainst: ["zenyatta", "moira", "brigitte", "junker-queen"],
   },
   {
     id: "roadhog",
@@ -428,7 +428,7 @@ export const heroes: IHero[] = [
       "torbjorn",
       "soldier",
       "kiriko",
-      "batiste",
+      "baptiste",
     ],
     goodAgainst: ["zarya", "ashe", "widowmaker", "zenyatta"],
   },
@@ -501,7 +501,7 @@ export const heroes: IHero[] = [
     image:
       "https://d15f34w2p8l1cc.cloudfront.net/overwatch/48392820c6976ee1cd8dde13e71df85bf15560083ee5c8658fe7c298095d619a.png",
     counteredBy: [
-      "rainhardt",
+      "reinhardt",
       "zarya",
       "ramattra",
       "pharah",
@@ -589,7 +589,7 @@ export const heroes: IHero[] = [
       "https://d15f34w2p8l1cc.cloudfront.net/overwatch/000beeb5606e01497897fa9210dd3b1e78e1159ebfd8afdc9e989047d7d3d08f.png",
     counteredBy: [
       "roadhog",
-      "rainhardt",
+      "reinhardt",
       "sombra",
       "reaper",
       "ana",
@@ -605,7 +605,7 @@ export const heroes: IHero[] = [
       "https://d15f34w2p8l1cc.cloudfront.net/overwatch/71cabc939c577581f66b952f9c70891db779251e8e70f29de3c7bf494edacfe4.png",
     counteredBy: [
       "junker-queen",
-      "rainhardt",
+      "reinhardt",
       "sombra",
       "tracer",
       "widowmaker",
