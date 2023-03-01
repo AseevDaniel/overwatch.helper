@@ -8,7 +8,9 @@ import { HeroesList } from "../../components/HeroesList";
 import {
   getBestCountersIds,
   getHeroesById,
+  getHeroesWithoutCounters,
 } from "../../helpers/teamSuggestions";
+import { BestTeamGenerator } from "../../components/BestTeamGenerator";
 
 interface HomePageProps {}
 
@@ -22,14 +24,7 @@ export const HomePage: React.FC<HomePageProps> = ({}) => {
 
   // console.log(suggestedHeroes);
 
-  useEffect(() => {
-    console.log("selectedEnemyHeroes", selectedEnemyHeroes);
-    console.log("best team", getBestCountersIds(selectedEnemyHeroes));
-    console.log(
-      "best team heroes",
-      getHeroesById(getBestCountersIds(selectedEnemyHeroes))
-    );
-  }, [selectedEnemyHeroes]);
+  useEffect(() => {}, [selectedEnemyHeroes]);
 
   return (
     <div className="homePage">
@@ -42,7 +37,11 @@ export const HomePage: React.FC<HomePageProps> = ({}) => {
             heroes={suggestedHeroes}
           />
 
-          <button>Generate Team</button>
+          <BestTeamGenerator counterHeroes={suggestedHeroes} />
+
+          <h2>Other heroes</h2>
+
+          <HeroesList heroes={getHeroesWithoutCounters(selectedEnemyHeroes)} />
         </div>
       )}
     </div>

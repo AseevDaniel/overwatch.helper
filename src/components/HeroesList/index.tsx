@@ -7,6 +7,7 @@ import "./heroes-list.scss";
 import {
   getCounterByForHero,
   getGoodAgainstForHero,
+  getSortedBestTeam,
 } from "../../helpers/teamSuggestions";
 import { CirecleImageList } from "./CircleImagesList";
 
@@ -23,9 +24,15 @@ export const HeroesList: React.FC<HeroesListProps> = ({
   enemyTeam,
   isWithSorting,
 }) => {
+  const sortedHeroes = getSortedBestTeam(heroes, enemyTeam || []);
+
+  console.log(sortedHeroes);
+
   return (
     <div className="heroesList">
-      {heroes.map((hero) => {
+      {sortedHeroes.map((hero) => {
+        if (!hero) return "oh no";
+
         return (
           <div
             onClick={() => onClick?.(hero)}

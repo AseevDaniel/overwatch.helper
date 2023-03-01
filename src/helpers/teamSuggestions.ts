@@ -19,16 +19,31 @@ export const getBestCountersIds = (enemyTeam: IHero[]): string[] => {
     return [...res, ...(hero.counteredBy as string[])];
   }, []);
 
-  const counters = _countDuplicate(bestCountersIds);
-  const sortedCounters = _sortObject(counters);
+  // const counters = _countDuplicate(bestCountersIds);
+  // const sortedCounters = _sortObject(counters);
+  //
+  // return Object.keys(sortedCounters);
 
-  return Object.keys(sortedCounters);
+  return _getUniqueValues(bestCountersIds);
 
   // console.log(bestCountersIds);
 
   // return bestCountersIds.map((id) => {
   //   return heroes.find((hero) => hero.id === id);
   // }) as IHero[];
+};
+
+export const getSortedBestTeam = (heroes: IHero[], enemyTeam: IHero[]) => {
+  return heroes.sort((hero1, hero2) => {
+    const hero1HowGood =
+      getGoodAgainstForHero(hero1, enemyTeam).length -
+      getCounterByForHero(hero1, enemyTeam).length;
+    const hero2HowGood =
+      getGoodAgainstForHero(hero2, enemyTeam).length -
+      getCounterByForHero(hero2, enemyTeam).length;
+
+    return hero2HowGood - hero1HowGood;
+  });
 };
 
 export const getHeroesById = (heroIds: string[]): IHero[] => {
@@ -55,6 +70,52 @@ export const getCounterByForHero = (hero: IHero, enemyTeam = heroes) => {
     .filter((hero) => {
       return !!enemyTeam.find((enemy) => enemy.id === hero.id);
     });
+};
+
+export const getHeroesWithoutCounters = (enemyTeam: IHero[]): IHero[] => {
+  return heroes.filter((hero) => {
+    return !enemyTeam.find((enemy) => {
+      return (
+        enemy.counteredBy.includes(hero.id) ||
+        enemy.goodAgainst?.includes(hero.id)
+      );
+    });
+  });
+};
+
+export const createBestTeam = (
+  counterHeroes: IHero[],
+  goodHeroes: IHero[] = []
+) => {
+  const allHeroes = [...counterHeroes, ...goodHeroes];
+
+  let teamRoles = {
+    support: 2,
+    damage: 2,
+    tank: 1,
+  };
+
+  const resTeam: IHero[] = [];
+
+  allHeroes.forEach((hero) => {
+    if (teamRoles[hero.role] > 0) {
+      resTeam.push(hero);
+      teamRoles[hero.role]--;
+    }
+  });
+
+  return resTeam;
+};
+
+export const _getUniqueValues = <T>(arr: T[]): T[] => {
+  let uniqueChars: T[] = [];
+  arr.forEach((element) => {
+    if (!uniqueChars.includes(element)) {
+      uniqueChars.push(element);
+    }
+  });
+
+  return uniqueChars;
 };
 
 const _countDuplicate = (a: any[]) => {

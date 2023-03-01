@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "../common/Modal";
 import { HeroesList } from "../HeroesList";
 import { IHero } from "../../interfaces/hero";
+import { createBestTeam } from "../../helpers/teamSuggestions";
 
 interface BestTeamGeneratorProps {
   counterHeroes: IHero[];
@@ -14,7 +15,7 @@ export const BestTeamGenerator: React.FC<BestTeamGeneratorProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const bestTeam: IHero[] = [];
+  const bestTeam: IHero[] = createBestTeam(counterHeroes, goodHeroes);
 
   return (
     <div className="best-team-generator">

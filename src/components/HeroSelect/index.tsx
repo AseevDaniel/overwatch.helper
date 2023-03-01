@@ -25,6 +25,8 @@ export const HeroSelect: React.FC<HeroSelectProps> = ({ onChangeSelected }) => {
   const onSelectHero = (hero: IHero) => {
     if (!isModalShown) return;
 
+    console.log(hero);
+
     setSelectedHeroes((prev) => {
       const existIndex = prev.findIndex(
         (selectedHero) => selectedHero?.id === hero.id
