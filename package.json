@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=14.17.0 <18.0.0",
-    "npm": ">=8.15.1"
+    "node": "14.17.0",
+    "npm": "8.15.1"
   },
   "dependencies": {
     "@types/node": "^14.17.0",
