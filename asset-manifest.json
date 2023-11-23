@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/overwatch.helper/static/css/main.a4302367.css",
+    "main.js": "/overwatch.helper/static/js/main.146e00f4.js",
+    "index.html": "/overwatch.helper/index.html",
+    "main.a4302367.css.map": "/overwatch.helper/static/css/main.a4302367.css.map",
+    "main.146e00f4.js.map": "/overwatch.helper/static/js/main.146e00f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4302367.css",
+    "static/js/main.146e00f4.js"
+  ]
+}
