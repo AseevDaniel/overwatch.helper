@@ -1,0 +1,47 @@
+.heroesList{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  align-items: stretch;
+  .heroCard{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    .info{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .roleImage{
+        width: 25px;
+        margin-left: 10px;
+      }
+    }
+    .circleImageList{
+      display: flex;
+      align-items: center;
+      max-width: 100%;
+      overflow-x: auto;
+      justify-content: flex-start;
+      .circleImage{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin-left: 5px;
+        &.goodAgainstItem{
+          border: 3px solid chartreuse;
+        }
+        &.countertHeroItem{
+          border: 3px solid red;
+        }
+      }
+      //&.goodAgainst{
+      //  justify-content: flex-start;
+      //}
+      //&.countersBy{
+      //  justify-content: flex-end;
+      //}
+    }
+  }
+}
