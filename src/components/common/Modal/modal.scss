@@ -22,7 +22,7 @@
   }
   .modalWindow{
     position: relative;
-    min-width: min(700px, 90vw);
+    min-width: calc(min(700px, 90vw));
     max-width: 800px;
 
     min-height: 400px;
